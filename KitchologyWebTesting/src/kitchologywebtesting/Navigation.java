@@ -13,22 +13,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.testng.collections.Lists;
 
 public class Navigation {
 
-    private String baseURL;
+    //Empty constructor
+    public Navigation() {
 
-    public Navigation(String url) {
-        baseURL = url;
-        clickLinksChrome();
     }
 
     public void clickLinksChrome() {
         //Instantiate Driver
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        driver.get(baseURL);
+        driver.get(Main.baseURL);
 
         //a list which stores the urls all of the clickable elements headings
         List<String> links = new LinkedList<String>();
@@ -50,7 +47,7 @@ public class Navigation {
         for (String tmpLink : links) {
             try {
                 //return to base url
-                driver.get(baseURL);
+                driver.get(Main.baseURL);
                 //find element
                 driver.findElement(By.linkText(tmpLink)).click();
                 //Wait for browser
@@ -71,7 +68,7 @@ public class Navigation {
         WebDriver driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get(baseURL);
+        driver.get(Main.baseURL);
 
         //a list which stores the urls all of the clickable elements headings
         List<String> links = new LinkedList<String>();
@@ -93,7 +90,7 @@ public class Navigation {
         for (String tmpLink : links) {
             try {
                 //return to base url
-                driver.get(baseURL);
+                driver.get(Main.baseURL);
                 //find element
                 driver.findElement(By.linkText(tmpLink)).click();
                 //Wait for browser
@@ -114,7 +111,7 @@ public class Navigation {
         WebDriver driver = new InternetExplorerDriver();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get(baseURL);
+        driver.get(Main.baseURL);
 
         //a list which stores the urls all of the clickable elements headings
         List<String> links = new LinkedList<String>();
@@ -136,7 +133,7 @@ public class Navigation {
         for (String tmpLink : links) {
             try {
                 //return to base url
-                driver.get(baseURL);
+                driver.get(Main.baseURL);
                 //find element
                 driver.findElement(By.linkText(tmpLink)).click();
                 //Wait for browser
@@ -182,7 +179,7 @@ public class Navigation {
             }
         }
 
-        //if the number of equvalent words is > 80% of
+        //if the number of equvalent words is > 80% of the smaller 
         if ((double) simTally / Math.min(split1.length, split2.length) > thresh) {
             return true;
         } else {
