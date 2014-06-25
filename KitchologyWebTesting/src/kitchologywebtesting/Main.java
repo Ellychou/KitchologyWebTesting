@@ -10,12 +10,14 @@ public class Main {
     //***CALL TEST METHODS HERE***
     public Main() {
         //Identify the various driver.exe files
-        locateDrivers();
+        //locateDrivers();
 
         //Initialize an instance of Navigation
         Navigation nav = new Navigation();
         //Initialize an instance of Login
         Login log = new Login();
+
+        nav.clickLinksChrome();
         
         //TODO: Access methods of nav ( nav.methodExample() )
         //TODO: Access methods of log ( log.exampleMethod() )
